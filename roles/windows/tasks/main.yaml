@@ -1,0 +1,10 @@
+- name: Create directory structure
+  ansible.windows.win_file:
+    path: C:\Temp
+    state: directory
+
+- name: Set service ssh startup mode to auto
+  ansible.windows.win_service:
+    name: sshd
+    start_mode: auto
+    state: started
