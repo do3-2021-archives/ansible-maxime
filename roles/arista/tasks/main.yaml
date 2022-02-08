@@ -11,3 +11,11 @@
   arista.eos.eos_facts:
     gather_subset:
     - interfaces
+
+- name: Configure interfaces
+  arista.eos.eos_config:
+    src: "{{ item }}"
+    save_when: always
+  loop:
+    - Ethernet1.cfg
+    - Ethernet2.cfg
