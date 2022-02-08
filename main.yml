@@ -8,19 +8,15 @@
     - role: apache
 
 - hosts: debian
+  gather_facts: no
   become: yes
   become_user: root
   roles:
     - role: php/debian
 
 - hosts: rocky
+  gather_facts: no
   become: yes
   become_user: root
   roles:
     - role: php/rocky
-
-- hosts: [debian, rocky]
-  become: yes
-  become_user: root
-  roles:
-    - role: reload
