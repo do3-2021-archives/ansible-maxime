@@ -16,6 +16,9 @@ rocky-4 ansible_host=127.0.0.1 ansible_password=root ansible_port=3224
 debian
 rocky
 
+[self]
+self ansible_host=127.0.0.1 ansible_ssh_private_key_file=~/.ssh/id_ed25519 ansible_port=22
+
 [linux:children]
 debian
 rocky

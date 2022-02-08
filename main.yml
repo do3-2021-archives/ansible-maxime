@@ -23,3 +23,10 @@
   become_user: root
   roles:
     - role: php/rocky
+
+- hosts: self
+  gather_facts: no
+  become: yes
+  become_user: root
+  roles:
+    - role: docker
