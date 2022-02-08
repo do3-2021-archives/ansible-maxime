@@ -1,9 +1,10 @@
 ---
 
-# Install apache
 - hosts: [debian, rocky]
   become: yes
   become_user: root
+  vars_files:
+    - vars/firewall.yaml
   roles:
     - role: geerlingguy.firewall
     - role: download
