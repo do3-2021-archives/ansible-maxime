@@ -7,9 +7,14 @@
   roles:
     - role: apache
 
-# Install php
 - hosts: debian
   become: yes
   become_user: root
   roles:
     - role: php/debian
+
+- hosts: rocky
+  become: yes
+  become_user: root
+  roles:
+    - role: php/rocky

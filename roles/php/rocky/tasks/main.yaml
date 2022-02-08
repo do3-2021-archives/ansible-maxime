@@ -1,0 +1,19 @@
+---
+- name: Installer Php7
+  ansible.builtin.dnf:
+    name: php
+    state: latest
+
+- name: Démarrer le service Apache
+  ansible.builtin.service:
+    name: httpd
+    state: started
+    enabled: true
+
+- name: Copier le fichier phpinfo
+  ansible.builtin.copy:
+    src: assets/info.php
+    dest: /var/www/html/index.php
+    owner: apache
+    group: apache
+    mode: 0664
