@@ -1,9 +1,3 @@
-- name: Install apache2 on debian
-  ansible.builtin.apt:
-    name: apache2
-    state: present
-  when: ansible_facts['os_family'] == 'Debian'
-
 - name: Changing ports.conf file
   ansible.builtin.template:
     src: ports.conf.j2
@@ -14,9 +8,3 @@
   when: ansible_facts['os_family'] == 'Debian'
   notify:
     - Reload apache service on Debian
-
-- name: Install httpd on rocky
-  ansible.builtin.dnf:
-    name: httpd
-    state: latest
-  when: ansible_facts['os_family'] == 'RedHat'

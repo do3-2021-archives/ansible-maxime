@@ -5,6 +5,7 @@
   become: yes
   become_user: root
   roles:
+    - role: download
     - role: apache
 
 - hosts: debian

@@ -1,9 +1,4 @@
 ---
-- name: Installer Php7
-  ansible.builtin.apt:
-    name: libapache2-mod-php7.4
-    state: present
-
 - name: Démarrer le service Apache
   ansible.builtin.service:
     name: apache2

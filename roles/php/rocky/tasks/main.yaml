@@ -1,9 +1,4 @@
 ---
-- name: Installer Php7
-  ansible.builtin.dnf:
-    name: php
-    state: latest
-
 - name: Démarrer le service Apache
   ansible.builtin.service:
     name: httpd
