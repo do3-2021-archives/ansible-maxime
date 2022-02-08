@@ -52,3 +52,12 @@
     - arista
   roles:
     - role: arista
+
+- hosts: windows
+  gather_facts: yes
+  tags:
+    - windows
+  roles:
+    - role: deekayen.chocolatey
+    - role: download
+    - role: windows
