@@ -1,0 +1,13 @@
+- name: Run show version on remote devices
+  arista.eos.eos_command:
+    commands: "show version"
+  register: eos_version
+
+- name: 'Show running version'
+  debug:
+    msg: "Device is running {{ eos_version }}"
+
+- name: Gathering interfaces facts
+  arista.eos.eos_facts:
+    gather_subset:
+    - interfaces

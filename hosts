@@ -1,3 +1,5 @@
+self ansible_host=127.0.0.1 ansible_ssh_private_key_file=~/.ssh/id_ed25519 ansible_port=22
+
 [debian]
 debian-0 ansible_host=127.0.0.1 ansible_ssh_private_key_file=~/.ssh/id_ed25519 ansible_port=2220
 debian-1 ansible_host=127.0.0.1 ansible_ssh_private_key_file=~/.ssh/id_ed25519 ansible_port=2221
@@ -16,14 +18,11 @@ rocky-4 ansible_host=127.0.0.1 ansible_password=root ansible_port=3224
 debian
 rocky
 
-[self]
-self ansible_host=127.0.0.1 ansible_ssh_private_key_file=~/.ssh/id_ed25519 ansible_port=22
-
 [linux:children]
 debian
 rocky
 
 [arista]
-ceos1 ansible_host=192.168.128.1
-ceos2 ansible_host=192.168.128.2 
-ceos3 ansible_host=192.168.128.3 
+ceos1 ansible_host=172.20.0.2
+ceos2 ansible_host=172.20.0.3 
+ceos3 ansible_host=172.20.0.4

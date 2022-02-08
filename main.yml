@@ -3,17 +3,28 @@
 - hosts: [debian, rocky]
   become: yes
   become_user: root
+  tags:
+    - download
+  roles:
+    - role: download
+    - role: apache
+
+- hosts: [debian, rocky]
+  become: yes
+  become_user: root
+  tags:
+    - firewall
   vars_files:
     - vars/firewall.yaml
   roles:
     - role: geerlingguy.firewall
-    - role: download
-    - role: apache
 
 - hosts: debian
   gather_facts: no
   become: yes
   become_user: root
+  tags:
+    - apache
   roles:
     - role: php/debian
 
@@ -21,6 +32,8 @@
   gather_facts: no
   become: yes
   become_user: root
+  tags:
+    - apache
   roles:
     - role: php/rocky
 
@@ -28,5 +41,14 @@
   gather_facts: no
   become: yes
   become_user: root
+  tags:
+    - docker
   roles:
     - role: docker
+
+- hosts: arista
+  gather_facts: no
+  tags:
+    - arista
+  roles:
+    - role: arista
