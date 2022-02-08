@@ -1,0 +1,8 @@
+---
+
+# Install apache
+- hosts: [debian, rocky]
+  become: yes
+  become_user: root
+  roles:
+    - role: apache

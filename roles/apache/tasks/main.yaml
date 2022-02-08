@@ -1,0 +1,11 @@
+- name: Install apache2 on debian
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+  when: supported_os == 'Debian'
+
+- name: Install httpd on rocky
+  ansible.builtin.dnf:
+    name: httpd
+    state: latest
+  when: supported_os == 'Rocky'
