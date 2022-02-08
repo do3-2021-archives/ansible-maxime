@@ -1,0 +1,12 @@
+---
+- name: Reload apache service on Debian
+  ansible.builtin.shell:
+    cmd: killall -s SIGHUP apache2
+  when: ansible_facts['os_family'] == 'Debian'
+  tags: reload 
+
+- name: Reload apache service on Rocky
+  ansible.builtin.shell:
+    cmd: killall -s SIGHUP httpd
+  when: ansible_facts['os_family'] == 'RedHat'
+  tags: reload
