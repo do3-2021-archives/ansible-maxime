@@ -5,6 +5,7 @@
   become: yes
   become_user: root
   roles:
+    - role: geerlingguy.firewall
     - role: download
     - role: apache
 
